@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>About Me</h4>
+       <h3>{{user.name}}</h3>
+        <h5>Photo of me:</h5>
+        <div class="fakeimg"><img src="{{user.photoUrl}}"></div>
+       <button (click)="signInWithFB()" class="btn btn-primary">Login Facebook</button>
+     </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

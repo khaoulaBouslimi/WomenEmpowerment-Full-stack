@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  mysqldb:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=p2a_women
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    ports:
+      - 3306:3306
+
+  p2a:
+    image: p2a:latest
+    ports:
+      - 8000:8000
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/p2a_women
+    depends_on:
+      - mysqldb

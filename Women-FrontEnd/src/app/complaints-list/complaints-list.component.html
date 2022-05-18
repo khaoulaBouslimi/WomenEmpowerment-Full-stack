@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div>
+  <div class="d-flex flex-nowrap">
+
+    <input class="form-control mainLoginInput" type="text" name="search" [(ngModel)]="term"  placeholder="Search"
+     style="width:300px"/>
+    </div>
+   <table class="table" style="width:70%;margin-left: 150px;">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Topic</th>
+        <th scope="col">Date</th>
+        <th scope="col">Action</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of dataC   |  paginate: { itemsPerPage: 6, currentPage: p} let index = index">
+        
+          <th scope="row">{{d.id }}</th>
+          <td>{{d.topic }}</td>
+          <td>{{d.complaintDate |date }}</td>
+          <td>
+            
+          </td>
+          <td>
+            <ul>
+              <li><button class="btn btn-danger" (click)="delete(d.id)">Delete</button></li>
+              <li><a class="btn btn-success" (click)="editComplaint()" href="/update">Edit</a></li>
+            </ul> 
+          </td>
+      </tr>
+
+    </tbody>
+  </table> 
+</div>
+<div class="paginator">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+<app-footer></app-footer>
+

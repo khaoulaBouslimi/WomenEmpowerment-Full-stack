@@ -1,0 +1,47 @@
+<div>
+    <div *ngIf="currentComplaints.id" class="edit-form">
+      <h4>Complaints</h4>
+      <form>
+        <div class="form-group">
+          <label for="topic">Topic</label>
+          <input
+            type="text"
+            class="form-control"
+            id="topic"
+            [(ngModel)]="currentComplaints.topic"
+            name="topic"
+          />
+        </div>
+        <div class="form-group">
+          <label for="complaintDate">Complaints Date</label>
+          <input
+            type="text"
+            class="form-control"
+            id="complaintDate"
+            [(ngModel)]="currentComplaints.complaintDate"
+            name="compalintDate"
+          />
+        </div>
+  
+  
+      </form>
+  
+      
+      
+  
+      <button class="badge badge-danger mr-2" (click)="delete()">
+        Delete
+      </button>
+  
+      
+
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentComplaints.id">
+      <br />
+      <p>Cannot access this Complaints...</p>
+    </div>
+  </div>
+
+  <app-footer></app-footer>

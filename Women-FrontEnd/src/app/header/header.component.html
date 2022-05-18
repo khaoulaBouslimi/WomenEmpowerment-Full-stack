@@ -1,0 +1,95 @@
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-expand-lg navbar-light navigation">
+					<a class="navbar-brand" href="index.html">
+						<img src="../../assets/images/women-logo1.png" alt="" style="height: 70px;width: 150px;">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto main-nav ">
+							<li class="nav-item active">
+								<a class="nav-link" href="index.html">Home</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="/event">Events</a>
+							</li>
+				
+
+						<!-- Training Session nav bar Section -->
+						
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Training Sessions <span><i class="fa fa-angle-down"></i></span>
+								</a>
+								<!-- Dropdown list -->
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="/trainingSessionList"> <strong> List of training sessions </strong> </a>
+									<a class="dropdown-item" href="/quizList"> <strong> Quiz list </strong> </a>
+									<a class="dropdown-item" href="/questionList"> <strong> Questions list </strong> </a>
+									<a class="dropdown-item" href="/answerList"> <strong> Answers List </strong> </a>
+									<a class="dropdown-item" href="/welcomeToQuiz"> <strong> Quiz Time ! </strong> </a>
+								</div>
+
+								
+
+							</li>
+
+						<!-- / Training Session nav bar Section -->
+
+<!-- jobOffer nav bar Section -->
+						
+<li class="nav-item dropdown dropdown-slide">
+	<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		Jobs<span><i class="fa fa-angle-down"></i></span>
+	</a>
+	<!-- Dropdown list -->
+	<div class="dropdown-menu">
+		<a class="dropdown-item" href="/jobOffers"> <strong> List of jobs </strong> </a>
+		<a class="dropdown-item" href="/create-job-offer"> <strong> Add a job </strong> </a>
+	</div>
+
+	
+
+</li>
+
+<!-- / jobOffer nav bar Section -->
+							
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Reclamation <span><i class="fa fa-angle-down"></i></span>
+								</a>
+								<!-- Dropdown list -->
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="/complaintsList">Complaints List</a>
+									<a class="dropdown-item" href="/createComplaints">Add Complaint</a>
+								</div>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="/blog">Blog</a>
+							</li>
+	
+						</ul>
+						<ul class="navbar-nav ml-auto mt-10" *ngIf="!isLoggedIn">
+							<li class="nav-item">
+								<a class="nav-link login-button" href="/login">Login</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-white add-button" href="/register">Register</a>
+							</li>
+						</ul>
+						<ul class="navbar-nav ml-auto mt-10">
+							<li class="nav-item" *ngIf="isLoggedIn">
+								<a class="nav-link text-white add-button" (click)="logout()">Logout</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>

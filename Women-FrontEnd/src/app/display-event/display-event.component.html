@@ -1,0 +1,149 @@
+<app-header></app-header>
+
+
+<div class="eventList">
+
+<h3 class="text-white">List Events <i class="bi bi-calendar-event "></i></h3>
+<br />
+<div class="d-flex flex-nowrap">
+
+<input class="form-control mainLoginInput" type="text" name="search" [(ngModel)]="term" autocomplete="off" placeholder="Search"> 
+<a (click)="addEventOpen(ADDEVENT)" type="button" class="btn btn-secondary " style="margin-left:10px;"><i class="bi bi-plus-circle"></i></a> 
+</div>
+
+<div class="form">
+<div class="row ml-5">
+    <div class="col-sm-4" *ngFor="let e of events  | filter:term | paginate: { itemsPerPage: 3, currentPage: p} let index = index ">
+        <div class="card  mb-5 mt-5 " style="width: 18rem;" >
+        <img  class="card-img-top" [src]="image(e.data,e.fileType)" alt="Card image cap">
+        
+         
+        <div class="card-body">
+        <div class="card-header">
+            <h5 class="card-title">{{e.eventTopic}} | <span class="badge badge-dark">{{e.date | date  }}</span>
+            <qrcode [qrdata]="'Event Name: '+e.eventTopic +' Date: '+(e.date | date) "  [width]="70" [errorCorrectionLevel]="'M'"></qrcode></h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text mb-5">{{showMore? e.description:(e.description | slice:0:50)+'...' }}</p>
+        </div>
+             <div class="card-footer text-center">
+                <button type="button" class="btn btn-secondary" (click)="editEvent(e.id,Event)"><i class="bi bi-pencil-square"></i></button>&nbsp;
+                <button type="button" class="btn btn-danger" (click)="deleteEvent(e.id)"><i class="bi bi-trash3"></i></button>&nbsp;
+                 <button type="button" class="btn btn-info" (click)="diplayVideo(e.dataVideo,e.fileType,Video)"><i class="bi bi-eye"></i></button>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="paginator">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+
+</div>
+
+
+<ng-template #Video let-modal >
+              <div class="modal-header">
+                  Trailler
+              </div>
+          <video controls autoplay>
+              <source [src]="image(urlVideo,fileTypeVideo)" type="video/mp4"> 
+          </video>
+</ng-template>
+
+
+<ng-template #Event let-modal >
+    <div class="modal-header">
+        Update Event 
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="myForm" (submit)="updateEvent(id,Event)">
+
+        <div class="form-group">
+          <label for="exampleInputtopic1">Event Topic</label>
+          <input type="text" class="form-control" id="exampleInputtopic1"eventTopic  [(ngModel)]="event.eventTopic" aria-describedby="topicHelp" formControlName="eventTopic" [ngClass]="{ 'is-invalid': submitted && myForm.controls['eventTopic'].errors }">
+          <div *ngIf="myForm.controls['eventTopic'].hasError('required')" class="invalid-feedback">
+              <div>eventTopic is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputdate1">Date event </label>
+          <input type="datetime-local" class="form-control" defaultValue='{{event.date}}' id="exampleInputdate1" [(ngModel)]="event.date" aria-describedby="dateHelp"  formControlName="date" [ngClass]="{ 'is-invalid': submitted && myForm.controls['date'].errors }">
+          <div *ngIf="myForm.controls['date'].hasError('required')" class="invalid-feedback">
+              <div>Date is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Description</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="event.description" rows="3" formControlName="description" [ngClass]="{ 'is-invalid': submitted && myForm.controls['description'].errors }"></textarea>
+          <div *ngIf="myForm.controls['description'].hasError('required')" class="invalid-feedback">
+              <div>Description is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Image</label>
+           <input  type="file" class="form-control" name="pic" formControlName="pic" (change)="onFileSelected($event,event.id)" [ngClass]="{ 'is-invalid': submitted && myForm.controls['pic'].errors }">
+          <div *ngIf="myForm.controls['pic'].hasError('required')" class="invalid-feedback">
+              <div>Image is required</div>
+          </div>
+        </div>
+        <div class="d-flex flex-nowrap">
+        <button type="submit" class="btn btn-dark mx-2">save</button>
+ 
+          </div>
+      </form>
+      </div>
+</ng-template>
+
+
+<ng-template #ADDEVENT let-modal >
+    <div class="modal-header">
+        Add Event 
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="myForm" (submit)="addEvent(ADDEVENT)">
+        <div class="form-group">
+          <label for="exampleInputtopic1">Event Topic</label>
+          <input type="text" class="form-control" id="exampleInputtopic1"eventTopic  [(ngModel)]="event.eventTopic" aria-describedby="topicHelp" formControlName="eventTopic" [ngClass]="{ 'is-invalid': submitted && myForm.controls['eventTopic'].errors }">
+          <div *ngIf="myForm.controls['eventTopic'].hasError('required')" class="invalid-feedback">
+              <div>eventTopic is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputdate1">Date event </label>
+          <input type="datetime-local" class="form-control"  id="exampleInputdate1" [(ngModel)]="event.date" aria-describedby="dateHelp"  formControlName="date" [ngClass]="{ 'is-invalid': submitted && myForm.controls['date'].errors }">
+          <div *ngIf="myForm.controls['date'].hasError('required')" class="invalid-feedback">
+              <div>Date is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Description</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="event.description" rows="3" formControlName="description" [ngClass]="{ 'is-invalid': submitted && myForm.controls['description'].errors }"></textarea>
+          <div *ngIf="myForm.controls['description'].hasError('required')" class="invalid-feedback">
+              <div>Description is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Image</label>
+           <input  type="file" class="form-control" name="pic" formControlName="pic" (change)="onFileSelected($event,event.id)" [ngClass]="{ 'is-invalid': submitted && myForm.controls['pic'].errors }">
+          <div *ngIf="myForm.controls['pic'].hasError('required')" class="invalid-feedback">
+              <div>Image is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Video</label>
+           <input  type="file" class="form-control" name="pic" formControlName="pic" (change)="onSelectedVideo($event,event.id)" [ngClass]="{ 'is-invalid': submitted && myForm.controls['pic'].errors }">
+          <div *ngIf="myForm.controls['pic'].hasError('required')" class="invalid-feedback">
+              <div>Video is required</div>
+          </div>
+        </div>
+        <div class="d-flex flex-nowrap">
+        <button type="submit" class="btn btn-dark mx-2">{{loading?"Loading video...":"Save"}}</button>
+          </div>
+      </form>
+      </div>
+</ng-template>
+
+<app-footer></app-footer>

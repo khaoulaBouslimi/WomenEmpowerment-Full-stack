@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<div class="container mbt-8 mymarge ">
+    <div class="card">
+        <br>
+        <h2 class="text-center" style="color: rgb(155, 204, 248);"><i class="bi bi-list-nested"></i> The Quiz list</h2>
+
+
+        <div class="input-group "  >
+                
+            <div class=" d-flex justify-content p-3">
+                <!-- Search form -->
+                <div class="search-box " >
+                    <button class="btn-search"><i class="bi bi-search"></i></button>
+                    <input [(ngModel)]="term" type="search" class="input-search" name="term" placeholder="Type title to Search...">
+                </div>
+                <!-- /Search form -->
+            </div>
+           
+            <br>
+            <div class="container tableFixHead"  >
+                <table class="table table-hover table-border ">
+                    <thead class="thead-dark" >
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Trainer</th>
+                            <th scope="col">Published</th>
+                            <th scope="col" >Operations</th>
+                        </tr>
+                    </thead>
+            
+                    <tbody>
+                        <tr *ngFor="let q of listQuiz | filter: term ">
+                            
+                            <td>{{ q.idQuiz}}</td>
+                            <td><i class="bi bi-chat-square-quote-fill"></i> {{ q.name }}</td>
+                            <td>{{ q.duration }} ⏱️</td>
+                            <td><i class="bi bi-geo-alt"></i> {{ q.location }}</td>
+                            <td>{{ q.description }}</td>
+                            <td><i class="bi bi-person-fill"></i> {{ q.trainerSname }} </td>
+                            <td>{{ q.isPublished }} </td>
+                            <td>
+                                <button (click)="updateQuiz(q.idQuiz)" type="button" class="btn btn-outline-success" style="margin-right: 5px;">Update</button>
+                                <button (click)="deleteQuizById(q.idQuiz)" type="button" class="btn btn-outline-danger" style="margin-left: 5px;">Delete</button>
+                                <button (click)="addQuestionToQuiz(q.idQuiz)" type="button" class="btn btn-outline-success" style="margin-left: 10px;">add</button>
+
+                            </td>
+            
+                        </tr>
+                    </tbody>
+                </table> 
+            </div> 
+        </div>     
+    </div>
+</div>

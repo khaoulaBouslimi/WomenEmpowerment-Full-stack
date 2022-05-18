@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+
+<div class="row">
+    <div class="card col-md-6 offset-md-3 offset-md-3">
+        <div class="row">
+            <h3 class="text-center"> Update JobOffer </h3>
+            <hr />
+            <div class="card-body">
+                <form (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+                        <label> sector</label>
+                        <input type="text" class="form-control" idOffer="sector" [(ngModel)]="jobOffers.sector"
+                            name="sector">
+                    </div>
+
+                    <div class="form-group">
+                        <label> experience</label>
+                        <input type="text" class="form-control" idOffer="experience" [(ngModel)]="jobOffers.experience"
+                            name="experience">
+                    </div>
+
+                    <div class="form-group">
+                        <label> location</label>
+                        <input type="text" class="form-control" idOffer="location" [(ngModel)]="jobOffers.location"
+                            name="location">
+                    </div>
+
+                    <div class="form-group">
+                        <label> description</label>
+                        <input type="text" class="form-control" idOffer="description" [(ngModel)]="jobOffers.description"
+                            name="description">
+                    </div>
+                    <br />
+                    <button class="btn btn-success" type="submit">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

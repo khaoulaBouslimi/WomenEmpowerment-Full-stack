@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+    
+
+
+
+    <!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>	
+<body class="form-v6">
+	<div class="page-content">
+		<div class="form-v6-content" >
+			<div class="form-left">
+				<img class="myleft" src="assets/FormTsAssets/images/wpower.jpg" alt="form"  >
+			</div>
+			<form class="form-detail" action="#" method="post" (ngSubmit) = "onSubmit()">
+				<h2 class="p1"> <strong>Create an Answer </strong> </h2>
+				<br>
+
+				
+
+				<div class="form-row">
+					<span class="label">Answer Text :</span>
+					<input type="text" name="answertext" id="answertext" class="input-text" [(ngModel)] = "a.answertext" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+						
+				</div>
+
+		
+
+				<div class="form-row">
+					<span class="label">Id Question :</span>
+					<input type="text" name="idQuiz" id="idQuiz" class="input-text" [(ngModel)] = "question.idQuestion" required >
+						
+				</div>
+
+		
+
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" value="Register">
+				</div>
+				
+			</form>
+		</div>
+	</div>
+</body><!-- This templates was made by khaoula bouslimi -->
+</html>
+
+
+<app-footer></app-footer>

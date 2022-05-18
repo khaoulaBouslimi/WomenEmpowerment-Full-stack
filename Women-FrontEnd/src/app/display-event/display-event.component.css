@@ -1,0 +1,26 @@
+.form{
+ 
+}
+.form table th{
+    color: rgb(168, 168, 168);
+    text-align: center;
+}
+.form table td{
+    color: rgb(168, 168, 168);
+    text-align: center;
+}
+.eventList{
+    margin: 150px auto;
+  width: 80%;
+  background-color: rgb(64, 57, 57);
+  color :white;
+  padding: 15px;
+}
+
+.paginator{
+    display: flex;
+    justify-content: center;
+}
+img{
+    height: 300px;
+}

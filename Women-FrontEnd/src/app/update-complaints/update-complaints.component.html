@@ -1,0 +1,25 @@
+<app-header></app-header>
+<section class="login py-5 border-top-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-8 align-item-center">
+                <div class="border">
+                    <h3 class="bg-gray p-4">Add Complaint</h3>
+                    <form *ngIf="!submitted">
+                        <fieldset class="p-4">
+                            <input type="text" placeholder="Topic" class="border p-3 w-100 my-2" required  #topic=ngModel [(ngModel)]="data.topic" name="topic">
+                            <button type="submit" class="d-block py-3 px-5 bg-primary text-white border-0 rounded font-weight-bold mt-3" (click)="editComplaint(data)">Add</button>
+                            
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>
+
+<app-footer></app-footer>

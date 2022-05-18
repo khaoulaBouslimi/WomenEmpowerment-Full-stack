@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class = "row">
+    <h2> JobOffer List</h2>
+</div>
+
+<table class = "table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>sector</th>
+            <th> experience </th>
+            <th> location</th>
+            <th> description</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let jobOffers of JobOffer" >
+            <td> {{ jobOffers.sector }} </td>
+            <td> {{ jobOffers.experience }} </td>
+            <td> {{ jobOffers.location }} </td>
+            <td> {{ jobOffers.description }} </td>
+            <td>
+                <button (click) = "updateJobOffer(jobOffers.idOffer)" class = "btn btn-primary"> Update</button>
+                <button (click) = "deleteJobOfferById(jobOffers.idOffer)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "JobOfferDetails(jobOffers.idOffer)" class = "btn btn-primary" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<app-footer></app-footer>

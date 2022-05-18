@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container bg-light py-3 rounded mymarge">
+
+    <div class="d-flex justify-content-between p-3">
+        <div class="image">
+            <img src="assets/images/lion.png" alt="logo" width="200" >
+            <span class="text-uppercase" style="color: rgb(0, 0, 0);"> Women Empowerment </span>
+            
+        </div>
+
+    </div>
+    
+    <h1 display-5 fw-bold style="color: rgb(239, 201, 187);" > <strong>Welcome to the Quiz </strong>   </h1>
+    
+    <p class="col-md-8 fs-4" > This quiz will contains total 9 questions, each question holds 10 points </p>
+
+    <h4 style="color: rgb(187, 230, 239);"> <i class="bi bi-list-check"></i> Rules :</h4>
+
+    <ol>
+        <li> ⚪ ​Correct Question Gives you 10 points .</li>
+        <li> ⚪ ​​​Inorrect Question Gives to -10 points .</li>
+        <li> ⚪ ​You will have 60sec to answer each question .</li>
+        <li> ⚪ Refreshing the page will reset the Quiz .</li>
+
+    </ol>
+    
+   
+    <h1 style="font-family: cursive;text-align:center; color: rgb(241, 85, 187);" >All the best!!</h1>
+
+    <div class="name col-md-4 my-3">
+        <label for="">Enter your name:</label>
+        <input #name type="text" class="form-control"  >
+        <!--the name of #name should match the viewChild(name) in.ts -->
+    </div>
+    <button class="btn  btn-lg" routerLink="/quiz" (click)="startQuiz()" style="background-color: rgb(187, 230, 239);"> Start the Quiz</button>
+
+</div>

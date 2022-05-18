@@ -1,0 +1,25 @@
+.mymarge{
+    margin: top 2px;
+    margin: right 10px;
+    margin-bottom: 2em;
+    margin: left 00px;
+}
+
+mondiv {
+    margin: 20px;
+    
+    /* other styling */
+    background-color: #ff7a59;
+    border-radius: 10px;
+    display: inline-block;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    vertical-align: middle;
+    width: 200px;
+  }
+  .container {
+    max-width: 70% !important;/*Set your own width %; */
+ }
+  
+  

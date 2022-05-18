@@ -1,0 +1,89 @@
+<app-header></app-header>
+
+<div class="container mtb-5 mymarge">
+    <div  id="print-me" class="card">
+        <div class="d-flex justify-content-between p-3">
+            <div class="image">
+                <img src="assets/images/lion.png" alt="logo" width="200" >
+                <span class="text-uppercase" style="color: rgb(0, 0, 0);"> Women Empowerment </span>
+                
+            </div>
+
+            <div class="quiz-header">
+                <h4 style="font-family: cursive;"> Angular & Typescript Quiz</h4>
+                <span style="font-family: italic; ">Welcome <span style="color:rgb(155, 150, 240);">{{name}} </span> <i class="bi bi-emoji-smile"></i></span>
+            </div>
+        </div>
+
+        <ng-container *ngIf="!isQuizCompleted">
+            <div class="d-flex justify-content-around p-3">
+                <div class="score">
+                    <h5 style="color: chartreuse;">{{points}} Points ​</h5>
+                </div>
+                <div class="question-remain">
+                    <span style="font-style: italic;"> Question {{currentQuestion+1}} of {{questionList.length}} </span>
+                </div>
+                <div class="timer">
+                    <h5 style="color: chartreuse;">{{counter}} sec ⏱️</h5> 
+                </div>
+            </div>
+            <div class="progress mb-3">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width':progress+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="question" >
+                <div class="card">
+                    <h3 style="color: darkblue;">{{questionList[currentQuestion]?.questiontext}}</h3>
+                </div>
+            </div>
+            <div class="options">
+                <ol *ngFor="let option of questionList[currentQuestion]?.options">
+                    <li (click)="answer(currentQuestion+1,option)">
+                        <!--the option.correct is from json-->
+                        <div appChangeBg [isCorrect]="option.correct" class="card" style="color: darkblue;">
+                            {{option.text}}
+                        </div>
+                    </li>
+    
+                   
+                </ol>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button [disabled]="currentQuestion === 0 "  class="btn" (click)="previousQuestion()"> <i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i>  </button>
+                <button class="btn" (click)="resetQuiz()"> <i class="fa text-primary fa-refresh fa-3x" aria-hidden="true"></i>            </button>
+                <button class="btn" (click)="nextQuestion()"> <i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i> </button>
+            </div>
+        </ng-container>
+
+        
+        <ng-container *ngIf="isQuizCompleted">
+            <div  class="row d-flex justify-content-between">
+                <img style="width: 30%;" class="img-fluid col-sm-12 mx-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeS1dozJgmwxPy3Z2AbnY9-ZsV0gt-EkLs3njBnZ6uGg4qEvOD5lOOWUNFGYSv9CkWrwY&usqp=CAU" alt="Congratulations">
+                <div class="result text-center col-md-6 col-sm-12">
+                     <h3 > Congratulations {{name}}!! <br> You have completed the quiz. <br> Below is your result : </h3>
+                     <p > Total Question Attempted : {{questionList.length}} </p>
+                     <p> Total Correct Answered : {{correctAnswer}} </p>
+                     <p> Total wrong Answered : {{inCorrectAnswer}} </p>
+                     <p> Your Score : {{points}} Points </p>
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-dark button" printSectionId="print-me" ngxPrint style="color: chartreuse;"><i class="bi bi-file-earmark-pdf-fill"></i>Print</button>
+            </div>    
+            
+            <div class="container" style="text-align:center">
+                <h2 style="color: rgb(3, 88, 149);"><i class="bi bi-qr-code-scan"></i> You can scan me  </h2><br>
+                <qrcode [qrdata]="  name+ ' You have completed the quiz.' +'\n Total Question Attempted : '+ questionList.length +' \n Total Correct Answered : '+ correctAnswer + '\n Total wrong Answered :' + inCorrectAnswer + '\n Your Score : ' + points "  [width]="250" cssClass="aclass" [errorCorrectionLevel]="'M'"></qrcode>
+
+            </div>
+            
+
+            
+
+            
+
+            
+
+        </ng-container>
+        <br>
+    </div>
+</div>

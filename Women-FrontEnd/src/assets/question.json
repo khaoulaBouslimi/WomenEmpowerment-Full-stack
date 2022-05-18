@@ -1,0 +1,185 @@
+{
+    "questions":
+
+        [
+            
+            {
+              "idQuestion": 1,
+              "questionorder": 2,
+              "questiontext": "A directive, which modifies the DOM hierarchy, is called :",
+              "isvalid": true,
+              "options":[{
+                "text": "Attribute directive ."
+              },
+              {
+                "text": "Structural Directive .",
+                "correct":true
+              }
+              
+            ]
+            },
+            {
+              "idQuestion": 2,
+              "questionorder": 2,
+              "questiontext": "You can pass data from parent component to child component using :",
+              "isvalid": true,
+              "options":[{
+                "text": "@outpu()"
+              },
+              {
+                "text": "@input()",
+                "correct":true
+              },
+              {
+                "text": "input"
+              },
+              {
+                "text": "outpu"
+              }
+            ]
+            },
+            {
+              "idQuestion": 3,
+              "questionorder": 3,
+              "questiontext": "In routing, the tag below is used to render the corresponding component through the active route :",
+              "isvalid": true,
+              "options":[{
+                "text": "<router></router>"
+              },
+              {
+                "text": "<router-output></router-output>"
+              },
+              {
+                "text": "<router-output></router-output>",
+                "correct":true
+              },
+              {
+                "text": "<router-output></router-output>"
+              }
+            ]
+            },
+            {
+              "idQuestion": 4,
+              "questionorder": 4,
+              "questiontext": "The component below represents the target DOM element in the constructor of a directive :",
+              "isvalid": true,
+              "options":[{
+                "text": "ElementRef",
+                "correct":true
+              },
+              {
+                "text": "Element"
+              },
+              {
+                "text": "Host"
+              },
+              {
+                "text": "Target"
+              }
+            ]
+            },
+            {
+              "idQuestion": 5,
+              "questionorder": 5,
+              "questiontext": "The function get/put/post/delete du service HTTP returns :",
+              "isvalid": true,
+              "options":[{
+                "text": "Objet de type « any »",
+                "correct":true
+              },
+              {
+                "text": "Observable",
+                "correct":true
+              },
+              {
+                "text": "Données Json"
+              },
+              {
+                "text": "Fonction de rappel(callback)"
+              }
+            ]
+            },
+            {
+              "idQuestion": 6,
+              "questionorder": 6,
+              "questiontext": "What is the decorator used to configure your module class?",
+              "isvalid": true,
+              "options":[{
+                "text": "@NgApp"
+              },
+              {
+                "text": "@NgModule",
+                "correct":true
+              },
+              {
+                "text": "@NgAngular"
+              },
+              {
+                "text": "@NgConfigure"
+              }
+            ]
+            },
+            {
+              "idQuestion": 7,
+              "questionorder": 7,
+              "questiontext": "What character is used to chain multiple pipes in Angular ?",
+              "isvalid": true,
+              "options":[{
+                "text": "  :"
+              },
+              {
+                "text": "  –"
+              },
+              {
+                "text": "/"
+              },
+              {
+                "text": "|",
+                "correct":true
+              }
+            ]
+
+            },
+            {
+              "idQuestion": 8,
+              "questionorder": 8,
+              "questiontext": "You can create a local HTML reference of an HTML tag using a variable that starts with a character :",
+              "isvalid": true,
+              "options":[{
+                "text": "  #",
+                "correct":true
+              },
+              {
+                "text": "  @"
+              },
+              {
+                "text": "  ."
+              },
+              {
+                "text": "  &"
+              }
+            ]
+            },
+            {
+              "idQuestion": 9,
+              "questionorder": 9,
+              "questiontext": "Which of the following filters is used to convert a string to uppercase?",
+              "isvalid": true,
+              "options":[{
+                "text": "upper"
+              },
+              {
+                "text": "uppercase",
+                "correct":true
+              },
+              {
+                "text": "toUpper"
+              },
+              {
+                "text": "All the answers are correct"
+              }
+            ]
+            }
+          ]}
+
+    
